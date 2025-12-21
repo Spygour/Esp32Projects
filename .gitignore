@@ -1,0 +1,43 @@
+# Build output
+build/
+out/
+bin/
+
+# ESP-IDF specific
+sdkconfig
+sdkconfig.old
+dependencies.lock
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Compiler output
+*.o
+*.elf
+*.map
+*.bin
+
+# Logs
+*.log
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# CLion
+.idea/
+cmake-build-*/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Backup files
+*~
