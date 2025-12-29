@@ -418,6 +418,7 @@ static void DfRobotLidar7_DISTANCE2(uint8_t data)
     DfRobotLidar7_Instance.crc = (DfRobotLidar7_Instance.crc << 8) ^ crc32MPEG2Table[((DfRobotLidar7_Instance.crc >> 24) ^ data) & 0xff];
     DfRobotLidar7_Instance.distance |= ((uint16_t)data << 8);
     DfRobotLidar7_DataStored++;
+    ESP_LOGW("DfRobotLidar7", "exw error?  %u", DfRobotLidar7_Instance.distance);
 }
 
 static void DfRobotLidar7_AMPLITUDE1(uint8_t data)
@@ -446,7 +447,6 @@ static void DfRobotLidar7_AMBIENT2(uint8_t data)
     DfRobotLidar7_Instance.crc = (DfRobotLidar7_Instance.crc << 8) ^ crc32MPEG2Table[((DfRobotLidar7_Instance.crc >> 24) ^ data) & 0xff];
     DfRobotLidar7_Instance.ambient_light |= ((uint16_t)data << 8);
     DfRobotLidar7_DataStored++;
-    ESP_LOGW("DfRobotLidar7", "exw error?  %u", DfRobotLidar7_Instance.ambient_light);
 }
 
 static void DfRobotLidar7_TOF(uint8_t data)
