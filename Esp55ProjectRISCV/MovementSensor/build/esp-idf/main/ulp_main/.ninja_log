@@ -1,0 +1,22 @@
+# ninja log v6
+6	186	7835562475064197	lp_core_riscv.ld	806bf01807867cd2
+6	186	7835562475064197	C:/Users/spyro/Esp-workspace/Esp55ProjectRISCV/MovementSensor/build/esp-idf/main/ulp_main/lp_core_riscv.ld	806bf01807867cd2
+199	587	7835562475234185	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/start.S.obj	6bbee1b9db923360
+204	591	7835562475284180	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/vector.S.obj	7052f3bb0c545dd8
+209	648	7835562475334184	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/port/esp32p4/vector_table.S.obj	2173e6a9699de917
+215	693	7835562475394178	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/shared/ulp_lp_core_memory_shared.c.obj	762e7dd92cb76bfe
+254	705	7835562475789630	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_panic.c.obj	13d4ee0647e42296
+225	706	7835562475494184	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_startup.c.obj	ee9e26e760873585
+220	760	7835562475444174	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/shared/ulp_lp_core_lp_timer_shared.c.obj	a7693bc550af67a0
+235	770	7835562475594180	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/hal/uart_hal_iram.c.obj	a728a50d3169161c
+262	813	7835562475869628	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_interrupt.c.obj	a3d68641d908ea32
+249	818	7835562475734165	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_print.c.obj	8123891d4180a6b2
+245	829	7835562475684189	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_uart.c.obj	4daeb37fea86933b
+240	876	7835562475644188	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/hal/uart_hal.c.obj	b716e752ed6d283d
+230	887	7835562475544186	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_utils.c.obj	3c6ac0bbacd42920
+54	679	7835562949654193	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_spi.c.obj	8815b0c532f3072d
+81	726	7835562949924194	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/shared/ulp_lp_core_lp_vad_shared.c.obj	65a4af7e62920246
+87	752	7835562949984184	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/shared/ulp_lp_core_critical_section_shared.c.obj	67b43d66de0663c2
+48	772	7835562949594196	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_i2c.c.obj	442a085b2b0b31e1
+62	790	7835562949734187	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/lp_core/lp_core_ubsan.c.obj	1149042e528f33a8
+71	830	7835562949824205	CMakeFiles/ulp_main.dir/C_/Users/spyro/esp/v5.5-dev/esp-idf/components/ulp/lp_core/shared/ulp_lp_core_lp_adc_shared.c.obj	59ceabd042577883

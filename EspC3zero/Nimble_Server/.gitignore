@@ -1,78 +1,59 @@
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Directory metadata
-.directory
-
-# Temporary files
-*~
-*.swp
-*.swo
-*.bak
-*.tmp
-
-# Log files
-*.log
-
-# Build artifacts and directories
-**/build/
+# ESP-IDF build directory
 build/
-*.o
-*.a
-*.out
-*.exe # For any host-side utilities compiled on Windows
 
-# ESP-IDF specific build outputs
+# ESP-IDF generated files
+sdkconfig
+sdkconfig.old
+
+# Keep project-specific sdkconfig defaults if you use them
+# sdkconfig.defaults
+
+# Compiled binaries
 *.bin
 *.elf
 *.map
-flasher_args.json # Generated in build directory
-sdkconfig.old
-sdkconfig
 
-# ESP-IDF dependencies
-# For older versions or manual component management
-/components/.idf/
-**/components/.idf/
-# For modern ESP-IDF component manager
-managed_components/
-# If ESP-IDF tools are installed/referenced locally to the project
-.espressif/
+# Object files
+*.o
+*.a
+
+# ESP-IDF generated files
+*.d
+*.cmake
+
+# Flash/build artifacts
+bootloader/
+partition_table/
 
 # CMake generated files
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
-install_manifest.txt
-CTestTestfile.cmake
+Makefile
 
-# Python environment files
+# Python cache
+__pycache__/
 *.pyc
 *.pyo
-*.pyd
-__pycache__/
-*.egg-info/
-dist/
 
-# Virtual environment folders
-venv/
+# Python virtual environments
 .venv/
+venv/
 env/
 
-# Language Servers
-.clangd/
-.ccls-cache/
-compile_commands.json
+# VS Code
+.vscode/
 
-# Windows specific
+# CLion / JetBrains
+.idea/
+
+# macOS
+.DS_Store
+
+# Windows
 Thumbs.db
-ehthumbs.db
 Desktop.ini
 
-# User-specific configuration files
-*.user
-*.workspace # General workspace files, can be from various tools
-*.suo       # Visual Studio Solution User Options
-*.sln.docstates # Visual Studio
+# Temporary files
+*.tmp
+*.log
