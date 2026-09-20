@@ -25,6 +25,8 @@ Makefile
 
 *.idx
 
+.cache/
+
 # VS Code
 .vscode/
 *.code-workspace

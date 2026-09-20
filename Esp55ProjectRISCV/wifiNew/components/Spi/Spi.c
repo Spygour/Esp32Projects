@@ -7,7 +7,7 @@
 #define PIN_NUM_CLK  18
 #define PIN_NUM_CS   5
 
-void ExampleMain(void)
+void Spi_ExampleMain(void)
 {
     spi_bus_config_t buscfg = {
         .mosi_io_num = PIN_NUM_MOSI,

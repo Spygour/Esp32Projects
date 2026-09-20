@@ -33,6 +33,5 @@ typedef struct
 void DfRobotLidar7_Init(DFROBOTLIDAR07_COLLECTMODE_t mode);
 bool DfRobotLidar7_StartFilter(void);
 bool DfRobotLidar7_SetMeasureMode(DFROBOTLIDAR07_COLLECTMODE_t mode);
-bool DfRobotLidar7_SetConMeasureFreq(uint32_t frqe);
 void DfRobotLidar7_StartMeasure(void);
 #endif

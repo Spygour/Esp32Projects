@@ -37,17 +37,17 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
         ESP_LOGI(TAG, "Got IP: " IPSTR, IP2STR(&event->ip_info.ip));
         
         // Send a UDP message to router (gateway)
-        int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-        struct sockaddr_in dest_addr = {
-            .sin_family = AF_INET,
-            .sin_port = htons(1234),
-        };
-        inet_pton(AF_INET, "192.168.1.2",&dest_addr.sin_addr); //event->ip_info.gw.addr; // router IP
-        int err = connect(sock, (struct sockaddr*)&dest_addr, sizeof(dest_addr));
-        if (err != 0) {
-            ESP_LOGE(TAG, "Socket unable to connect: errno %d", errno);
-        }
-        //xTaskCreateStatic(Mqtt_Main_Task, "Mqtt task", MQTT_MAIN_TASK_STACK, NULL, MQTT_MAINTASK_PRIORITY, StackMqttMain, &MqttMainBuffer);
+        //int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+        //struct sockaddr_in dest_addr = {
+        //    .sin_family = AF_INET,
+        //    .sin_port = htons(1234),
+        //};
+        //inet_pton(AF_INET, "192.168.1.2",&dest_addr.sin_addr); //event->ip_info.gw.addr; // router IP
+        //int err = connect(sock, (struct sockaddr*)&dest_addr, sizeof(dest_addr));
+        //if (err != 0) {
+        //    ESP_LOGE(TAG, "Socket unable to connect: errno %d", errno);
+        //}
+        ////xTaskCreateStatic(Mqtt_Main_Task, "Mqtt task", MQTT_MAIN_TASK_STACK, NULL, MQTT_MAINTASK_PRIORITY, StackMqttMain, &MqttMainBuffer);
     }   
 }
 

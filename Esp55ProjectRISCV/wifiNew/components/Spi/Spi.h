@@ -1,6 +1,6 @@
 #ifndef SPI_H_
 #define SPI_H_
 
-void ExampleMain(void);
+void Spi_ExampleMain(void);
 
 #endif
