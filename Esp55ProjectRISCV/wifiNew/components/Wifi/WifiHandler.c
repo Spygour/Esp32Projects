@@ -10,7 +10,6 @@
 #include "lwip/sockets.h"
 #include "lwip/inet.h"
 #include "WifiHandler.h"
-#include "mbedtlsApp.h"
 
 #define EXAMPLE_WIFI_SSID      "EON_0627"
 #define EXAMPLE_WIFI_PASS      "6ZQHuAkK"
@@ -36,7 +35,18 @@ static void wifi_event_handler(void* arg, esp_event_base_t event_base,
     } else if (event_base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
         ip_event_got_ip_t *event = (ip_event_got_ip_t *)event_data;
         ESP_LOGI(TAG, "Got IP: " IPSTR, IP2STR(&event->ip_info.ip));
-        /* Initialize the mbedtls task */
+        
+        // Send a UDP message to router (gateway)
+        int sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+        struct sockaddr_in dest_addr = {
+            .sin_family = AF_INET,
+            .sin_port = htons(1234),
+        };
+        inet_pton(AF_INET, "192.168.1.2",&dest_addr.sin_addr); //event->ip_info.gw.addr; // router IP
+        int err = connect(sock, (struct sockaddr*)&dest_addr, sizeof(dest_addr));
+        if (err != 0) {
+            ESP_LOGE(TAG, "Socket unable to connect: errno %d", errno);
+        }
         //xTaskCreateStatic(Mqtt_Main_Task, "Mqtt task", MQTT_MAIN_TASK_STACK, NULL, MQTT_MAINTASK_PRIORITY, StackMqttMain, &MqttMainBuffer);
     }   
 }

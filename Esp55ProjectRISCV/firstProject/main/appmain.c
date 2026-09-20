@@ -21,7 +21,6 @@
 #include "esp_log.h"
 #include "nvs_flash.h"
 #include "../components/Wifi/WifiHandler.h"
-#include "../components/Wifi/mbedtlsApp.h"
 
 
 uint32_t mov_flag;
@@ -40,7 +39,7 @@ int app_main (void)
     ESP_LOGI(Tag, "ESP_WIFI_MODE_AP");
 
     Wifi_Init();
-    MX_MBEDTLS_INIT_HW();
+    //MX_MBEDTLS_INIT_HW();
     /* ulp_riscv_halt() is called automatically when main exits */
     return 0;
 }
