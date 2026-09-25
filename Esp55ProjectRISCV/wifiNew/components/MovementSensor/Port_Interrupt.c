@@ -6,34 +6,23 @@
 #include "portmacro.h"
 #include "Port_Interrupt.h"
 
-#define MOVEMENT_PIN  5  // example GPIO
+#define MOVEMENT_PIN  47
 
 SemaphoreHandle_t movement_sem;
-volatile int64_t movement_time_us = 0;  // timestamp in microseconds
 
-static int64_t movement_time = 0;
-static uint64_t duration = 0;
+static volatile int64_t movement_time = 0;
+static volatile uint64_t duration = 0;
 
-static int motion_active = 0;  // 0 = low, 1 = high
+static bool motion_active = false;  // 0 = low, 1 = high
 
 static void IRAM_ATTR Port_MovementIsr(void* arg) 
 {
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-    int level = gpio_get_level(MOVEMENT_PIN);
 
-    movement_time_us = esp_timer_get_time();
-
-    if (level == 1) {
-        // Rising edge: motion started
-        motion_active = 1;
-    } else {
-        // Falling edge: motion ended
-        motion_active = 0;
-        duration = movement_time_us - movement_time;  // duration in us
-        xSemaphoreGiveFromISR(movement_sem, &xHigherPriorityTaskWoken);
-    }
-
+    int64_t movement_time_us = esp_timer_get_time();
+    duration = movement_time_us - movement_time;  // duration in us
     movement_time = movement_time_us;  // update last timestamp
+    xSemaphoreGiveFromISR(movement_sem, &xHigherPriorityTaskWoken);
     portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
 }
 
@@ -42,10 +31,19 @@ void Port_MovementTask(void *parameters)
 {
     while (1)
     {
-        if (xSemaphoreTake(movement_sem, pdMS_TO_TICKS(50)) == pdTRUE)
+        if (xSemaphoreTake(movement_sem, pdMS_TO_TICKS(100)) == pdTRUE)
         {
+                
+            int level = gpio_get_level(MOVEMENT_PIN);
+            if (level == 1) {
+                // Rising edge: motion started
+                motion_active = true;
+            } else {
+                // Falling edge: motion ended
+                motion_active = false;
+            }
             printf("Motion pulse duration: %llu us\n", duration);
-            printf("Movement is detected\n");
+            printf("Movement is detected: %d\n", motion_active);
         }
     }
 }
@@ -55,10 +53,10 @@ void Port_InitIsr(uint32_t* movement_flag)
     movement_sem = xSemaphoreCreateBinary();
     gpio_config_t io_conf = 
     {
-        .intr_type = GPIO_INTR_ANYEDGE,   // interrupt on rising edge
+        .intr_type = GPIO_INTR_POSEDGE,   // interrupt on rising edge
         .mode = GPIO_MODE_INPUT,
         .pin_bit_mask = 1ULL << MOVEMENT_PIN,
-        .pull_up_en = 1,                  // if needed
+        .pull_up_en = 0,                  // if needed
         .pull_down_en = 0
     };
     gpio_config(&io_conf);

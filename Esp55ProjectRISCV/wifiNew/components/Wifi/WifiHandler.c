@@ -11,8 +11,8 @@
 #include "lwip/inet.h"
 #include "WifiHandler.h"
 
-#define EXAMPLE_WIFI_SSID      "EON_0627"
-#define EXAMPLE_WIFI_PASS      "6ZQHuAkK"
+#define EXAMPLE_WIFI_SSID      "test_2.4G"
+#define EXAMPLE_WIFI_PASS      "testPass"
 #define MQTT_MAIN_TASK_STACK    16384
 
 #define MQTT_MAINTASK_PRIORITY     tskIDLE_PRIORITY + 1
@@ -76,13 +76,15 @@ void Wifi_Init(void)
         .sta = {
             .ssid = EXAMPLE_WIFI_SSID,
             .password = EXAMPLE_WIFI_PASS,
-            .threshold.authmode = WIFI_AUTH_WPA2_PSK,
+            .threshold.authmode = WIFI_AUTH_WPA_WPA2_PSK,
         },
     };
 
     ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
     ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
     ESP_ERROR_CHECK(esp_wifi_start());
+
+    ESP_ERROR_CHECK(esp_wifi_connect());
 
     ESP_LOGI(TAG, "Wi-Fi STA init finished. Connecting to SSID:%s", EXAMPLE_WIFI_SSID);
 }

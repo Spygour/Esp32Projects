@@ -2,7 +2,7 @@
 #define DFROBOTLIDAR7_H_
 
 #include <stdint.h>
-
+#include <stdbool.h>
 
 typedef struct {
   uint8_t head;
